@@ -4,6 +4,9 @@ class HTMLNode():
         self.value = value
         self.children = children
         self.props = props
+    
+    def __repr__(self):
+        return f'HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})'
 
     def to_html(self):
         raise NotImplementedError
@@ -11,13 +14,5 @@ class HTMLNode():
     def props_to_html(self):
         output = ''
         for n in self.props:
-            output = output + (f'{n}="{self.props[n]}" ') 
+            output += (f' {n}="{self.props[n]}"') 
         return output
-
-test_dict = {
-    "href" : "https://google.com",
-    "target" : "_blank"
-}
-
-a = HTMLNode('<p>','this is text','child B', test_dict)
-print(a.props_to_html())
