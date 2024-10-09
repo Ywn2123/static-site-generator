@@ -12,6 +12,12 @@ class TestTextNode(unittest.TestCase):
         return case1.props_to_html()
     def test2(self):
         case1 = HTMLNode('b', 'text in a node', 'ABC')
+        return case1.props_to_html()
+    def test3(self):
+        case1 = HTMLNode('tag', 'value', 'children', test_dict).props_to_html()
+        case2 = HTMLNode('tag', 'value', 'children', test_dict).props_to_html()
+        self.assertEqual(case1, case2)
+
 
 
 
